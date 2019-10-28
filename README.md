@@ -12,11 +12,16 @@ Mac and Linux users just work in your Terminal as usual.
 1. install python3 (e.g. via miniconda)
 2. `git clone https://github.com/gemini3d/gemini`
 3. `python gemini/install_prereqs.py`
-4. `pip install meson`
 5. `cd gemini`
 6. `python setup.py develop`
-7. `meson build`  # puts stuff in ./build/
-8. `meson test -C build`   # builds and runs several self-tests
+
+The "build" specified below is the directory gemini/build/ on the computer.
+
+1. `meson setup build`
+2. `meson test -C build`
+
+The "meson test" command compiles the programs and runs self-tests that will take
+about 5-10 minutes on a laptop or about half and hour on a Raspberry Pi 4.
 
 ### setup grid
 
