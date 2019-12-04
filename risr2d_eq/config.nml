@@ -1,25 +1,20 @@
 &base
-ymd = 2012,1,24               ! year, month, day
+ymd = 2012,1,23               ! year, month, day
 UTsec0 = 39600.0                       !UTsec0:  start time in UT seconds
-tdur = 300.0                          !tdur:  duration of simulation (seconds)
-dtout = 60.0                          !dtout: how often to do output (seconds)
+tdur = 86400.0                          !tdur:  duration of simulation in seconds
+dtout = 1800.0                          !dtout: how often to do output
 activ = 88.896, 139.8, 3              !activ:  f107a,f107,Ap
 tcfl = 0.9                           !tcfl:  target cfl number
 Teinf = 1500.0                        !Teinf:  exospheric electron temperature
-potsolve = 1                             !potsolve:  how are we solving electrodynamics?   0 - no; 1 - electrostatic; 2 - inductive
+potsolve = 0                             !potsolve:  how are we solving electrodynamics?   0 - no; 1 - electrostatic; 2 - inductive
 flagperiodic = 0
-flagoutput = 2
+flagoutput = 1
 flagcap = 0
 indat_size = '../gemini_sim/2D_eq/inputs/simsize.dat'
 indat_grid = '../gemini_sim/2D_eq/inputs/simgrid.dat'
 indat_file = '../gemini_sim/2D_eq/inputs/2D_eq_ICs.dat'
 flagdneu = 0
 flagprecfile = 0
-flagE0file = 1
+flagE0file = 0
 flagglow = 0
-/
-
-&efield
-dtE0 = 1.0
-E0_dir = '../gemini_sim/risr2d/inputs/Efield_inputs/'
 /

@@ -42,4 +42,3 @@ outdir='../gemini_sim/inputs/2D_eq/';
 writegrid(xg, outdir);
 time=UT*3600;   %doesn't matter for input files
 writedata(dmy,time,ns,vsx1,Ts,outdir,simlabel);
-
