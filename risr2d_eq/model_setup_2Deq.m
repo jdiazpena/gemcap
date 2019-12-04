@@ -19,12 +19,15 @@ dmy=[1,23,2012];
 activ=[88.896, 139.8, 3];
 
 
-%ADD PATHS FOR FUNCTIONS
+%% ADD PATHS FOR FUNCTIONS
 cwd = fileparts(mfilename('fullpath'));
-addpath([cwd, '/../gemini/script_utils']);
-addpath([cwd, '/../gemini/setup']);
-addpath([cwd, '/../gemini/setup',filesep,'gridgen'])
-addpath([cwd, '/../gemini/vis']);
+gemdir = [cwd, '/../../gemini'];
+simdir = [cwd, '/../../gemini_sim'];
+assert(isfolder(gemdir), [gemdir, ' not found'])
+assert(isfolder(simdir), [simdir, ' not found'])
+for d = {'script_utils', 'setup', 'setup/gridgen', 'vis'}
+  addpath([gemdir, filesep, d{:}])
+end
 
 
 %% GRID GENERATION
@@ -38,7 +41,7 @@ nme=2e11;
 
 %WRITE THE GRID AND INITIAL CONDITIONS
 simlabel = '2D_eq';
-outdir='../gemini_sim/inputs/2D_eq/';
+outdir = [simdir, '/inputs/2D_eq/'];
 writegrid(xg, outdir);
 time=UT*3600;   %doesn't matter for input files
 writedata(dmy,time,ns,vsx1,Ts,outdir,simlabel);
