@@ -80,5 +80,5 @@ The simulation is run with a command as follows.
 The `-np 4` parameter corresponds to the number of *physical* cores in the computer.
 
 ```sh
-mpiexec -np 4 ../gemini/build/gemini_fang.bin risr2d/config.nml ../gemini_sim/2deq
+mpiexec -np 4 ../gemini/build/gemini_fang.bin risr2d/config.nml ../gemini_sim/risr2d
 ```

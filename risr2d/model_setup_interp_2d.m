@@ -1,4 +1,7 @@
-function state = model_setup_interp_2d
+function [state, E] = model_setup_interp_2d(simID, eqID)
+narginchk(0,2)
+if nargin < 1, simID = 'risr2d'; end  % name of the new simulation
+if nargin < 2, eqID = [simID, '_eq']; end
 %% 2D grid generation parameters
 % FIXME: for now, make a little smaller than equilibrium sim to avoid going
 % outside its bounds with ghost cells
@@ -11,9 +14,8 @@ glon = 265.095; % 94.905 W
 I = 90;
 
 cwd = fileparts(mfilename('fullpath'));
-eq_dir = [cwd, '/../../gemini_sim/risr2d_eq'];
+eq_dir = [cwd, '/../../gemini_sim/', eqID];
 assert(isfolder(eq_dir), [eq_dir, ' not found'])
-simID = 'risr2d';  % name of the new simulation
 
 %ADD PATHS FOR FUNCTIONS
 gemdir = [cwd, '/../../gemini'];
@@ -25,7 +27,7 @@ end
 xg = makegrid_cart_3D(xdist, lxp, ydist, lyp, I, glat, glon);
 
 % these new variables are just for your information, they are written to disk by eq2dist().
-[nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(eq_dir, simID, xg);
+[nsi, vs1i, Tsi, xgin, ns, vs1, Ts, dir_grid] = eq2dist(eq_dir, simID, xg);
 
 state.nsi = nsi;
 state.vs1i = vs1i;
@@ -35,6 +37,8 @@ state.ns = ns;
 state.vs1 = vs1;
 state.Ts = Ts;
 
-if ~nargout, clear('state'), end
+%% potential boundary conditions
+E = Efield_BCs_2d(dir_grid);
 
+if ~nargout, clear('state', 'E'), end
 end % function

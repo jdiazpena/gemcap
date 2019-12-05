@@ -1,3 +1,6 @@
+! ensure there is always a trailing blank line at the end of the .nml file
+! or you will get "end of file" error
+
 &base
 ymd = 2012,1,24               ! year, month, day
 UTsec0 = 39600.0                       !UTsec0:  start time in UT seconds
