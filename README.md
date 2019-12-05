@@ -1,12 +1,9 @@
 # Gemini simulation configuration scripts
 
-
-## Quick start (from scratch)
-
-windows users: it is assumed you're using WSL (Windows Subsystem for Linux) throughout.
+windows uses WSL (Windows Subsystem for Linux).
 Mac and Linux users just work in your Terminal as usual.
 
-### build Gemini
+## build Gemini
 
 1. install python3 (e.g. via miniconda).  Python &ge; 3.6 is fine.
 2. `git clone https://github.com/gemini3d/gemini`
@@ -22,10 +19,13 @@ The "build" specified below is the directory gemini/build/ on the computer.
 The "meson test" command compiles the programs and runs self-tests that will take
 about 5-10 minutes on a laptop or about half and hour on a Raspberry Pi 4.
 
+## create equilibrium simulation
+
+It's necessary to have an equilibrium simulation to provide quiescent background conditions.
+
 ### setup grid
 
-Setup the simulation grid by running the `model_setup_*.m` script (from WSL if using Windows)
-This creates files under inputs/:
+Setup the simulation grid by running the `model_setup_eq?d.m` script, which creates files under `inputs/`:
 
 * ?D_eq_ICs.dat
 * simgrid.dat
@@ -41,8 +41,19 @@ The equilibrium simulation is run with a command as follows.
 The `-np 4` parameter corresponds to the number of *physical* cores in the computer.
 
 ```sh
-mpiexec -np 2 ../gemini/build/gemini_fang.bin risr2d/config.nml ../gemini_sim/2deq
+mpiexec -np 4 ../gemini/build/gemini_fang.bin risr2d_eq/config.nml ../gemini_sim/risr2d_eq
 ```
+
+## create simulation
+
+A simulation grid within the equilibrium simulation grid is necessary.
+Typically, boundary condtions are also used.
+
+Copy the config.nml used for the equilibrium simulation to the simulation directory,
+and increase the resolution as desired in the model_setup_interp?d.m file vs. the
+model_setup_eq?d.m file.
+
+Run the model_setup_interp?d.m to create the new grid.
 
 ### setup boundary conditions
 
@@ -61,4 +72,13 @@ flagE0file = 1
 dtE0 = 1.0
 E0_dir = '../my_sim_dir/inputs/Efield_inputs/'
 /
+```
+
+### run simulation
+
+The simulation is run with a command as follows.
+The `-np 4` parameter corresponds to the number of *physical* cores in the computer.
+
+```sh
+mpiexec -np 4 ../gemini/build/gemini_fang.bin risr2d/config.nml ../gemini_sim/2deq
 ```

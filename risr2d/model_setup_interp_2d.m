@@ -3,7 +3,7 @@ function state = model_setup_interp_2d
 % FIXME: for now, make a little smaller than equilibrium sim to avoid going
 % outside its bounds with ghost cells
 xdist = 1200e3;    %eastward distance
-ydist = 400e3;    %northward distance
+ydist = 600e3;    %northward distance
 lxp = 1;
 lyp = 150;
 glat = 74.73;
