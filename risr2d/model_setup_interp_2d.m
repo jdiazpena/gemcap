@@ -14,8 +14,14 @@ glon = 265.095; % 94.905 W
 I = 90;
 
 cwd = fileparts(mfilename('fullpath'));
-eq_dir = [cwd, '/../../gemini_sim/', eqID];
-assert(isfolder(eq_dir), [eq_dir, ' not found'])
+simroot = [cwd, '/../../gemini_sim/'];
+assert(isfolder(simroot), [simroot, ' is not a directory'])
+
+eq_dir = [simroot, eqID];
+assert(isfolder(eq_dir), [eq_dir, ' is not a directory'])
+
+outdir = [simroot, simID];
+assert(isfolder(outdir), [outdir, ' is not a directory'])
 
 %ADD PATHS FOR FUNCTIONS
 gemdir = [cwd, '/../../gemini'];
@@ -27,7 +33,7 @@ end
 xg = makegrid_cart_3D(xdist, lxp, ydist, lyp, I, glat, glon);
 
 % these new variables are just for your information, they are written to disk by eq2dist().
-[nsi, vs1i, Tsi, xgin, ns, vs1, Ts, dir_grid] = eq2dist(eq_dir, simID, xg);
+[nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(eq_dir, simID, xg, outdir);
 
 state.nsi = nsi;
 state.vs1i = vs1i;
@@ -38,7 +44,7 @@ state.vs1 = vs1;
 state.Ts = Ts;
 
 %% potential boundary conditions
-E = Efield_BCs_2d(dir_grid);
+E = Efield_BCs_2d(outdir, [cwd, '/config.nml']);
 
 if ~nargout, clear('state', 'E'), end
 end % function
