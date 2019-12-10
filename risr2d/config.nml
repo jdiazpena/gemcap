@@ -13,9 +13,9 @@ potsolve = 1                             !potsolve:  how are we solving electrod
 flagperiodic = 0
 flagoutput = 2
 flagcap = 0
-indat_size = '../gemini_sim/risr2d_eq/inputs/simsize.dat'
-indat_grid = '../gemini_sim/risr2d_eq/inputs/simgrid.dat'
-indat_file = '../gemini_sim/risr2d_eq/inputs/2D_eq_ICs.dat'
+indat_size = '../gemini_sim/risr2d_in/inputs/simsize.dat'
+indat_grid = '../gemini_sim/risr2d_in/inputs/simgrid.dat'
+indat_file = '../gemini_sim/risr2d_in/inputs/2D_eq_ICs.dat'
 flagdneu = 0
 flagprecfile = 0
 flagE0file = 1
@@ -24,5 +24,5 @@ flagglow = 0
 
 &efield
 dtE0 = 1.0
-E0_dir = '../gemini_sim/risr2d/inputs/Efield_inputs/'
+E0_dir = '../gemini_sim/risr2d_in/Efield_inputs/'
 /
