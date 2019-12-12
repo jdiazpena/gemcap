@@ -14,14 +14,13 @@ glon = 265.095; % 94.905 W
 I = 90;
 
 cwd = fileparts(mfilename('fullpath'));
-simroot = [cwd, '/../../gemini_sim/'];
+simroot = absolute_path([cwd, '/../../gemini_sim']);
 assert(isfolder(simroot), [simroot, ' is not a directory'])
 
-eq_dir = [simroot, eqID];
+eq_dir = [simroot, filesep, eqID];
 assert(isfolder(eq_dir), [eq_dir, ' is not a directory'])
 
-outdir = [simroot, simID];
-assert(isfolder(outdir), [outdir, ' is not a directory'])
+outdir = [simroot, filesep, simID];
 
 %ADD PATHS FOR FUNCTIONS
 gemdir = [cwd, '/../../gemini'];
@@ -44,7 +43,7 @@ state.vs1 = vs1;
 state.Ts = Ts;
 
 %% potential boundary conditions
-E = Efield_BCs_2d(outdir, [cwd, '/config.nml']);
+E = Efield_BCs_2d(outdir, 'raw', [cwd, '/config.nml']);
 
 if ~nargout, clear('state', 'E'), end
 end % function
