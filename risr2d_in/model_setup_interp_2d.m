@@ -2,6 +2,8 @@ function [state, E] = model_setup_interp_2d(simID, eqID)
 narginchk(0,2)
 if nargin < 1, simID = 'risr2d'; end  % name of the new simulation
 if nargin < 2, eqID = [simID, '_eq']; end
+
+realbits = 64;
 %% 2D grid generation parameters
 % FIXME: for now, make a little smaller than equilibrium sim to avoid going
 % outside its bounds with ghost cells
@@ -32,7 +34,7 @@ end
 xg = makegrid_cart_3D(xdist, lxp, ydist, lyp, I, glat, glon);
 
 % these new variables are just for your information, they are written to disk by eq2dist().
-[nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(eq_dir, simID, xg, outdir);
+[nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(eq_dir, simID, xg, outdir, realbits);
 
 state.nsi = nsi;
 state.vs1i = vs1i;
@@ -43,7 +45,7 @@ state.vs1 = vs1;
 state.Ts = Ts;
 
 %% potential boundary conditions
-E = Efield_BCs_2d(outdir, 'raw', [cwd, '/config.nml']);
+E = Efield_BCs_2d(outdir, 'raw', [cwd, '/config.nml'], realbits);
 
 if ~nargout, clear('state', 'E'), end
 end % function
