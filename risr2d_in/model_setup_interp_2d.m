@@ -16,7 +16,7 @@ glon = 265.095; % 94.905 W
 I = 90;
 
 cwd = fileparts(mfilename('fullpath'));
-simroot = absolute_path([cwd, '/../../gemini_sim']);
+simroot = [cwd, '/../../gemini_sim'];
 assert(isfolder(simroot), [simroot, ' is not a directory'])
 
 eq_dir = [simroot, filesep, eqID];
