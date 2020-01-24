@@ -12,4 +12,4 @@ p.fracwidth = 1/7;
 
 cwd = fileparts(mfilename('fullpath'));
 
-model_setup_interp('risr2d', [cwd,'../../gemini_sim'], p)
+model_setup_interp('risr2d', [cwd,'/../../gemini_sim'], p)

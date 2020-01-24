@@ -1,15 +1,14 @@
-function [state, E] = model_setup_interp(simID, simroot, p)
-narginchk(3,3)
-validateattributes(simID, {'char'}, {'vector'}, mfilename, 'name of simulation',1)
+function [state, E] = model_setup_interp(p, simroot)
+narginchk(2,2)
+validateattributes(p, {'struct'}, {'scalar'}, mfilename, 'parameters', 1)
 validateattributes(simroot, {'char'}, {'vector'}, mfilename, 'output directory top',2)
-validateattributes(p, {'struct'}, {'scalar'}, mfilename, 'parameters', 3)
-eqID = [simID, '_eq'];
+eqID = [p.simID, '_eq'];
 
 %% check directories
 assert(isfolder(simroot), [simroot, ' is not a directory'])
 eq_dir = [simroot, filesep, eqID];
 assert(isfolder(eq_dir), [eq_dir, ' is not a directory'])
-outdir = [simroot, filesep, [simID, '_in']];
+outdir = [simroot, filesep, [p.simID, '_in']];
 
 %ADD PATHS FOR FUNCTIONS
 cwd = fileparts(mfilename('fullpath'));
@@ -23,7 +22,7 @@ end
 xg = makegrid_cart_3D(p.xdist, p.lxp, p.ydist, p.lyp, p.I, p.glat, p.glon);
 
 % these new variables are just for your information, they are written to disk by eq2dist().
-[nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(eq_dir, simID, xg, outdir);
+[nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(eq_dir, p.simID, xg, outdir);
 
 state.nsi = nsi;
 state.vs1i = vs1i;
