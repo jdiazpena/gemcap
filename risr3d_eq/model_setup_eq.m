@@ -1,10 +1,10 @@
 % Note: run this script from the same environment you compiled the main
 % Gemini program in. On Windows, that usually means WSL.
 
-%LOWRES 2D grid generation
+%LOWRES 3D grid generation
 xdist=1200e3;    %eastward distance
 ydist=600e3;    %northward distance
-lxp=1;
+lxp=2;
 lyp=15;
 glat=74.73;
 glon=265.095; % 94.905 W
@@ -23,12 +23,10 @@ activ=[88.896, 139.8, 3];
 cwd = fileparts(mfilename('fullpath'));
 gemdir = [cwd, '/../../gemini'];
 simdir = [cwd, '/../../gemini_sim'];
-assert(isfolder(gemdir), [gemdir, ' not found'])
-assert(isfolder(simdir), [simdir, ' not found'])
 for d = {'script_utils', 'setup', 'setup/gridgen', 'vis'}
   addpath([gemdir, filesep, d{:}])
 end
-
+assert(is_folder(simdir), [simdir, ' not found'])
 
 %% GRID GENERATION
 xg = makegrid_cart_3D(xdist,lxp,ydist,lyp,I,glat,glon);
@@ -40,8 +38,8 @@ nme=2e11;
 
 
 %WRITE THE GRID AND INITIAL CONDITIONS
-simlabel = '2D_eq';
-outdir = [simdir, '/inputs/2D_eq/'];
+simlabel = '3D_eq';
+outdir = [simdir, '/risr3d_eq/inputs/'];
 writegrid(xg, outdir);
 time=UT*3600;   %doesn't matter for input files
 writedata(dmy,time,ns,vsx1,Ts,outdir,simlabel);

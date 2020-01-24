@@ -25,7 +25,7 @@ It's necessary to have an equilibrium simulation to provide quiescent background
 
 ### setup grid
 
-Setup the simulation grid by running the `model_setup_eq?d.m` script, which creates files under `inputs/`:
+Setup the simulation grid by running the `model_setup_eq?d.m` script under the `*_eq` directory, which creates files:
 
 * ?D_eq_ICs.dat
 * simgrid.dat
@@ -41,7 +41,7 @@ The equilibrium simulation is run with a command as follows.
 The `-np 4` parameter corresponds to the number of *physical* cores in the computer.
 
 ```sh
-mpiexec -np 4 ../gemini/build/gemini_fang.bin risr2d_eq/config.nml ../gemini_sim/risr2d_eq
+mpiexec -np 4 ../gemini/build/gemini.bin risr2d_eq/config.nml ../gemini_sim/risr2d_eq
 ```
 
 ## create simulation
