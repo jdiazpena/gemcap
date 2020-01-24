@@ -1,7 +1,7 @@
 % Note: run this script from the same environment you compiled the main
 % Gemini program in. On Windows, that usually means WSL.
 
-%LOWRES 2D grid generation
+%LOWRES grid generation
 xdist=1200e3;    %eastward distance
 ydist=600e3;    %northward distance
 lxp=1;
@@ -39,7 +39,7 @@ nme=2e11;
 
 %WRITE THE GRID AND INITIAL CONDITIONS
 simlabel = '2D_eq';
-outdir = [simdir, '/inputs/2D_eq/'];
+outdir = [simdir, '/risr2d_eq/inputs/'];
 writegrid(xg, outdir);
 time=UT*3600;   %doesn't matter for input files
 writedata(dmy,time,ns,vsx1,Ts,outdir,simlabel);

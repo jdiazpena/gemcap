@@ -1,7 +1,7 @@
 % Note: run this script from the same environment you compiled the main
 % Gemini program in. On Windows, that usually means WSL.
 
-%LOWRES 3D grid generation
+%LOWRES grid generation
 xdist=1200e3;    %eastward distance
 ydist=600e3;    %northward distance
 lxp=2;
