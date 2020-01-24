@@ -1,6 +1,7 @@
 % Note: run this script from the same environment you compiled the main
 % Gemini program in. On Windows, that usually means WSL.
 
+format = 'hdf5';
 %LOWRES grid generation
 xdist=1200e3;    %eastward distance
 ydist=600e3;    %northward distance
@@ -40,6 +41,6 @@ nme=2e11;
 %WRITE THE GRID AND INITIAL CONDITIONS
 simlabel = '3D_eq';
 outdir = [simdir, '/risr3d_eq/inputs/'];
-writegrid(xg, outdir);
+writegrid(xg, outdir, format);
 time=UT*3600;   %doesn't matter for input files
-writedata(dmy,time,ns,vsx1,Ts,outdir,simlabel);
+writedata(dmy,time,ns,vsx1,Ts,outdir,simlabel,format);
