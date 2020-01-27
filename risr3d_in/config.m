@@ -2,6 +2,7 @@
 % outside its bounds with ghost cells
 cwd = fileparts(mfilename('fullpath'));
 
+p.format = 'raw';
 p.simID = 'risr3d';
 p.nml = [cwd,'/config.nml'];
 p.xdist = 1200e3;    %eastward distance
