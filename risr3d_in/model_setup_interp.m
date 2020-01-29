@@ -32,7 +32,7 @@ state.nsi = nsi;
 state.vs1i = vs1i;
 
 state.Tsi = Tsi;
-state.xgin = xgin;
+state.xgin = xg;
 state.ns = ns;
 state.vs1 = vs1;
 state.Ts = Ts;

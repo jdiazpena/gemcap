@@ -15,4 +15,4 @@ p.I = 90;
 
 p.fracwidth = 1/7;
 
-model_setup_interp(p, [cwd,'/../../gemini_sim'])
+[state,E] = model_setup_interp(p, [cwd,'/../../gemini_sim']);
