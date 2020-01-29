@@ -1,4 +1,5 @@
 cwd = fileparts(mfilename('fullpath'));
+simroot = [cwd,'/../../gemini_sim'];
 
 p.format = 'raw';
 p.simID = 'risr3d';
@@ -14,7 +15,8 @@ p.nmf=5e11;
 p.nme=2e11;
 
 % [f107a, f107, ap] = activ;
-% python
 % import geomagindices as gi
 % gi.get_indices('2012-01-23T11', smoothdays=81)
 p.activ=[88.896, 139.8, 3];
+
+model_setup(p, simroot)

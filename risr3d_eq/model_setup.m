@@ -6,8 +6,7 @@ eqID = [p.simID, '_eq'];
 
 %% check directories
 eq_dir = [simroot, filesep, eqID];
-eqin_dir = [eq_dir,'/inputs'];
-outdir = eq_dir;
+outdir = [eq_dir,'/inputs'];
 
 %ADD PATHS FOR FUNCTIONS
 cwd = fileparts(mfilename('fullpath'));
@@ -29,7 +28,7 @@ if any(strcmp('activ', varnames))
   dmy = flip(cfg.ymd(:).');
   [ns,Ts,vsx1] = eqICs3D(xg, UThour, dmy, p.activ, p.nmf, p.nme);
   % Note: should be rewritten to include the neutral module form the fortran code
-  writedata(dmy, cfg.UTsec0,ns,vsx1,Ts,outdir,simlabel,format);
+  writedata(dmy, cfg.UTsec0,ns,vsx1,Ts,outdir, p.format);
 end
 
 end % function

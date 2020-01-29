@@ -1,6 +1,7 @@
 % FIXME: for now, make a little smaller than equilibrium sim to avoid going
 % outside its bounds with ghost cells
 cwd = fileparts(mfilename('fullpath'));
+simroot = [cwd,'/../../gemini_sim'];
 
 p.format = 'raw';
 p.simID = 'risr3d';
@@ -15,4 +16,4 @@ p.I = 90;
 
 p.fracwidth = 1/7;
 
-[state,E] = model_setup_interp(p, [cwd,'/../../gemini_sim']);
+[state,E] = model_setup(p, simroot);
