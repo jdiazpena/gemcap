@@ -1,14 +1,12 @@
-function [state, E] = model_setup_interp(p, simroot)
+function [state, E] = model_setup(p, simroot)
 narginchk(2,2)
 validateattributes(p, {'struct'}, {'scalar'}, mfilename, 'parameters', 1)
 validateattributes(simroot, {'char'}, {'vector'}, mfilename, 'output directory top',2)
 eqID = [p.simID, '_eq'];
 
 %% check directories
-assert(isfolder(simroot), [simroot, ' is not a directory'])
 eq_dir = [simroot, filesep, eqID];
 eqin_dir = [eq_dir,'/inputs'];
-assert(isfolder(eq_dir), [eq_dir, ' is not a directory'])
 outdir = [simroot, filesep, [p.simID, '_in']];
 
 %ADD PATHS FOR FUNCTIONS
