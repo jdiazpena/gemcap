@@ -16,4 +16,4 @@ p.I = 90;
 
 p.fracwidth = 1/7;
 
-[state,E] = model_setup(p, simroot);
+model_setup(p, simroot)

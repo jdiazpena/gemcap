@@ -8,6 +8,7 @@ eqID = [p.simID, '_eq'];
 eq_dir = [simroot, filesep, eqID];
 eqin_dir = [eq_dir,'/inputs'];
 outdir = [simroot, filesep, [p.simID, '_in']];
+outdir_inputs = [outdir,'/inputs'];
 
 %ADD PATHS FOR FUNCTIONS
 cwd = fileparts(mfilename('fullpath'));
@@ -18,7 +19,10 @@ for d = {'script_utils', 'setup', 'setup/gridgen', 'vis'}
 end
 
 %% copy equilibrium to new directory so Fortran can read and upsample
-copyfile(eqin_dir, [outdir,'/inputs'])
+if ~isfolder(outdir_inputs)
+  mkdir(outdir_inputs);
+end
+copyfile(eqin_dir, outdir_inputs)
 
 %% GRID GENERATION
 xg = makegrid_cart_3D(p.xdist, p.lxp, p.ydist, p.lyp, p.I, p.glat, p.glon);
