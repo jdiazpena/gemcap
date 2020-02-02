@@ -7,7 +7,7 @@
 #$ -l h_rt=12:00:00
 
 # this is total per-node RAM
-#$ -l mem_total=94G
+#$ -l mem_per_core=3G
 
 # send email status
 #$ -m ea
