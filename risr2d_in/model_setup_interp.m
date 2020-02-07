@@ -3,7 +3,6 @@ narginchk(2,2)
 validateattributes(p, {'struct'}, {'scalar'}, mfilename, 'parameters', 1)
 validateattributes(simroot, {'char'}, {'vector'}, mfilename, 'output directory top',2)
 eqID = [p.simID, '_eq'];
-format = 'hdf5';
 
 %% check directories
 assert(isfolder(simroot), [simroot, ' is not a directory'])
@@ -23,7 +22,7 @@ end
 xg = makegrid_cart_3D(p.xdist, p.lxp, p.ydist, p.lyp, p.I, p.glat, p.glon);
 
 % these new variables are just for your information, they are written to disk by eq2dist().
-[nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(eq_dir, p.simID, xg, format, outdir);
+[nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(eq_dir, p.simID, xg, p.format, outdir);
 
 state.nsi = nsi;
 state.vs1i = vs1i;
@@ -37,9 +36,9 @@ state.Ts = Ts;
 %% potential boundary conditions
 
 if p.lxp == 1 || p.lyp == 1
-  E = Efield_BCs_2d(p, outdir, format, [cwd, '/config.nml']);
+  E = Efield_BCs_2d(p, outdir, [cwd, '/config.nml']);
 else % 3D
-  E = Efield_BCs_3d(p, outdir, format, [cwd, '/config.nml']);
+  E = Efield_BCs_3d(p, outdir, [cwd, '/config.nml']);
 end
 
 if ~nargout, clear('state', 'E'), end

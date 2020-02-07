@@ -42,9 +42,9 @@ state.Ts = Ts;
 %% potential boundary conditions
 
 if p.lxp == 1 || p.lyp == 1
-  E = Efield_BCs_2d(p, outdir, p.format, [cwd, '/config.nml']);
+  E = Efield_BCs_2d(p, outdir, [cwd, '/config.nml']);
 else % 3D
-  E = Efield_BCs_3d(p, outdir, p.format, [cwd, '/config.nml']);
+  E = Efield_BCs_3d(p, outdir, [cwd, '/config.nml']);
 end
 
 if ~nargout, clear('state', 'E'), end
