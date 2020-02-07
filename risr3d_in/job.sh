@@ -21,4 +21,4 @@ echo "NSLOTS = $NSLOTS"
 
 cd /projectnb/semetergrp/gemcap
 
-$MPI_ROOT/bin/mpiexec -np 20 ../gemini/build_budge/gemini.bin risr3d_in/config.nml ../gemini_sim/risr3d_in
+$MPI_ROOT/bin/mpiexec -np 20 ../gemini/build_budge/gemini.bin risr3d_in/config_raw.nml ../gemini_sim/risr3d_in
