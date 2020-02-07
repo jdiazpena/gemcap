@@ -1,7 +1,7 @@
 cwd = fileparts(mfilename('fullpath'));
 simroot = [cwd,'/../../gemini_sim'];
 
-p.format = 'raw';
+p.format = 'hdf5';
 p.simID = 'risr3d';
 p.nml = [cwd,'/config.nml'];
 p.xdist = 100e3;    %eastward distance
