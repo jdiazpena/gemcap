@@ -1,0 +1,23 @@
+! ensure there is always a trailing blank line at the end of the .nml file
+! or you will get "end of file" error
+
+&base
+ymd = 2012,1,23              ! year, month, day
+UTsec0 = 39600.0             !UTsec0:  start time in UT seconds
+tdur = 86400.0               !tdur:  duration of simulation in seconds
+dtout = 1800.0               !dtout: how often to do output
+activ = 88.896, 139.8, 3     !activ:  f107a,f107,Ap
+tcfl = 0.9                   !tcfl:  target cfl number
+Teinf = 1500.0               !Teinf:  exospheric electron temperature
+potsolve = 0      !potsolve:  how are we solving electrodynamics?   0 - no; 1 - electrostatic; 2 - inductive
+flagperiodic = 0
+flagoutput = 1
+flagcap = 0
+indat_size = '../gemini_sim/risr3d_eq/inputs/simsize.dat'
+indat_grid = '../gemini_sim/risr3d_eq/inputs/simgrid.dat'
+indat_file = '../gemini_sim/risr3d_eq/inputs/initial_conditions.dat'
+flagdneu = 0
+flagprecfile = 0
+flagE0file = 0
+flagglow = 0
+/

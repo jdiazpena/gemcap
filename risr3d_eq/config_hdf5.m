@@ -3,7 +3,7 @@ simroot = [cwd,'/../../gemini_sim'];
 
 p.format = 'hdf5';
 p.simID = 'risr3d';
-p.nml = [cwd,'/config.nml'];
+p.nml = [cwd,'/config_hdf5.nml'];
 p.xdist = 100e3;    %eastward distance
 p.ydist = 600e3;    %northward distance
 p.lxp = 10;
