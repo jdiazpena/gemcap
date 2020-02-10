@@ -2,7 +2,7 @@
 
 # to use Buyin  #-P burbsp #-l buyin
 
-#$ -l h_rt=1:00:00
+#$ -l h_rt=4:00:00
 
 # this is total per-node RAM
 #$ -l mem_per_core=3G
@@ -16,4 +16,4 @@ echo "NSLOTS = $NSLOTS"
 
 cd /projectnb/semetergrp/gemcap
 
-$MPI_ROOT/bin/mpiexec -np 20 ../gemini/build_budge/gemini.bin risr3d_in/config_raw.nml ../gemini_sim/risr3d_in
+$MPI_ROOT/bin/mpiexec -np 20 ../gemini/build_budge_h5/gemini.bin risr3d_eq/config_hdf5.nml ../gemini_sim/risr3d_eq
