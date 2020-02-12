@@ -8,7 +8,7 @@
 #$ -l mem_per_core=3G
 
 # MPI
-#$ -pe mpi_8_tasks_per_node 15
+#$ -pe mpi_8_tasks_per_node 16
 
 echo "NSLOTS = $NSLOTS"
 
