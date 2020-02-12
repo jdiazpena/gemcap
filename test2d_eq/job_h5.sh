@@ -2,7 +2,7 @@
 
 # to use Buyin  #-P burbsp #-l buyin
 
-#$ -l h_rt=1:00:00
+#$ -l h_rt=2:00:00
 
 # this is total per-node RAM
 #$ -l mem_per_core=3G
