@@ -16,4 +16,4 @@ echo "NSLOTS = $NSLOTS"
 
 cd /projectnb/semetergrp/gemini
 
-python job.py initialize/test2d_eq/config.nml ../gemini_sim/test2d_eq -gemexe=build_budge_h5/gemini.bin
+python3 job.py initialize/test2d_eq/config.nml ../gemini_sim/test2d_eq -gemexe=build_budge_h5/gemini.bin
