@@ -14,13 +14,11 @@ for d = {'script_utils', 'setup', 'setup/gridgen', 'vis'}
 end
 
 %% copy equilibrium to new directory so Fortran can read and upsample
-if ~isfolder(simdir_inputs)
-  mkdir(simdir_inputs);
-end
+makedir(simdir_inputs)
 copyfile(eqdir_inputs, simdir_inputs)
 
 %% GRID GENERATION
-xg = makegrid_cart_3D(p.xdist, p.lxp, p.ydist, p.lyp, p.I, p.glat, p.glon);
+xg = makegrid_cart_3D(p);
 
 % these new variables are just for your information, they are written to disk by eq2dist().
 [nsi, vs1i, Tsi, xgin, ns, vs1, Ts] = eq2dist(p, xg);
