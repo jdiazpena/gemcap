@@ -15,19 +15,11 @@ p.glon = 212.95;
 p.I = 90;
 p.nmf = 5e11;
 p.nme = 2e11;
-%% ADD PATHS
-gemdir = [cwd, '/../../gemini'];
-addpath([gemdir, '/script_utils']);
-addpath([gemdir, '/setup']);
-addpath([gemdir, '/setup/gridgen'])
 
 p = merge_struct(p, read_config(p.nml));
-%% GRID GENERATION
-xg = makegrid_cart_3D(p);
+% import geomagindices as gi
+% gi.get_indices('2013-02-20T05', smoothdays=81)
+p.activ = [108.9, 111.0, 5];
 
-%% WRITE GRID & INITIAL CONDITIONS
-writegrid(p, xg);
-
-[ns,Ts,vsx1] = eqICs3D(p, xg);
-writedata(p.ymd, p.UTsec0, ns, vsx1, Ts, p.simdir, p.format);
+model_setup_equilibrium(p)
 end % function
