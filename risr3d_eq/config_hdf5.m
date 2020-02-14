@@ -1,5 +1,7 @@
 cwd = fileparts(mfilename('fullpath'));
 simroot = [cwd,'/../../gemini_sim'];
+gemroot = [cwd,'/../../gemini'];
+addpath(gemroot)
 
 p.format = 'hdf5';
 p.simID = 'risr3d';
@@ -19,4 +21,4 @@ p.nme = 2e11;
 % gi.get_indices('2012-01-23T11', smoothdays=81)
 p.activ=[88.896, 139.8, 3];
 
-model_setup(p, simroot)
+model_setup_equilibrium(p)

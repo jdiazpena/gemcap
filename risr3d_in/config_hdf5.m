@@ -2,6 +2,8 @@
 % outside its bounds with ghost cells
 cwd = fileparts(mfilename('fullpath'));
 simroot = [cwd,'/../../gemini_sim'];
+gemroot = [cwd,'/../../gemini'];
+addpath(gemroot)
 
 p.format = 'hdf5';
 p.eqdir = [simroot, '/risr3d_eq'];
@@ -19,4 +21,4 @@ p.Etarg = 25; % [mV / m]
 
 p.fracwidth = 1/7;
 
-model_setup(p)
+model_setup_interp(p)

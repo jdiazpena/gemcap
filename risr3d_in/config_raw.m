@@ -2,6 +2,8 @@
 % outside its bounds with ghost cells
 cwd = fileparts(mfilename('fullpath'));
 simroot = [cwd,'/../../gemini_sim'];
+gemroot = [cwd,'/../../gemini'];
+addpath(gemroot)
 
 p.format = 'raw';
 p.simID = 'risr3d';
@@ -16,4 +18,4 @@ p.I = 90;
 
 p.fracwidth = 1/7;
 
-model_setup(p, simroot)
+model_setup_interp(p, simroot)
