@@ -1,11 +1,14 @@
 function config()
 %% 2D east-west test equilibrium
+% this is a special case where an altitude grid I don't know how to
+% reproduce is reused.
 %
 cwd = fileparts(mfilename('fullpath'));
 
-p.format = 'hdf5';
+p.format = 'h5';
 p.nml = [cwd,'/config.nml'];
 p.simdir = [cwd, '/../../gemini_sim/test2d_eq'];
+p.eqdir = [p.simdir,'/inputs'];  % to reuse Matt's grid from a long, long time ago
 p.xdist = 1200e3;    %eastward distance
 p.ydist = 600e3;    %northward distance
 p.lxp = 15;
