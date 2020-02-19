@@ -22,9 +22,6 @@ p.nmf = 5e11;
 p.nme = 2e11;
 
 p = merge_struct(p, read_config(p.nml));
-% import geomagindices as gi
-% gi.get_indices('2013-02-20T05', smoothdays=81)
-p.activ = [108.9, 111.0, 5];
 
 model_setup_equilibrium(p)
 end % function
