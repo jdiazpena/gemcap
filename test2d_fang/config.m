@@ -10,12 +10,13 @@ p.eqdir = [cwd, '/../../gemini_sim/test2d_eq'];
 p.eqnml = [p.eqdir, '/inputs/config.nml'];
 p.simdir = [pwd, '/../../gemini_sim/test2d_fang'];
 p.xdist = 200e3;    %eastward distance
-p.ydist = 600e3;    %northward distance
+p.ydist = 1000e3;    %northward distance
 p.lxp = 40;
 p.lyp = 1;
 p.glat = 67.11;
 p.glon = 212.95;
 p.I = 90;
+
 p.Efield_fracwidth = 1/7;
 p.Etarg = 50e-3;  % [V/m]
 p.precip_latwidth = 1/4;
