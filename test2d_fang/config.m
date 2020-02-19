@@ -1,12 +1,12 @@
 function config()
 %% 2D east-west test
-
-gemroot = [pwd, '/../../gemini'];
+cwd = fileparts(mfilename('fullpath'));
+gemroot = [cwd, '/../../gemini'];
 addpath([gemroot,'/script_utils'], [gemroot,'/setup'])
 
-p.format = 'hdf5';
-p.nml = [pwd,'/config.nml'];
-p.eqdir = [pwd, '/../../gemini_sim/test2d_eq'];
+p.format = 'h5';
+p.nml = [cwd,'/config.nml'];
+p.eqdir = [cwd, '/../../gemini_sim/test2d_eq'];
 p.eqnml = [p.eqdir, '/inputs/config.nml'];
 p.simdir = [pwd, '/../../gemini_sim/test2d_fang'];
 p.xdist = 200e3;    %eastward distance

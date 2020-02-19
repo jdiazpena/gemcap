@@ -4,6 +4,8 @@ function config()
 % reproduce is reused.
 %
 cwd = fileparts(mfilename('fullpath'));
+gemroot = [cwd, '/../../gemini'];
+addpath([gemroot,'/script_utils'], [gemroot,'/setup'])
 
 p.format = 'h5';
 p.nml = [cwd,'/config.nml'];
