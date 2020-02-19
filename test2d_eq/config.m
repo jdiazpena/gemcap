@@ -11,7 +11,7 @@ p.format = 'h5';
 p.nml = [cwd,'/config.nml'];
 p.simdir = [cwd, '/../../gemini_sim/test2d_eq'];
 
-p = merge_struct(p, read_config(p.nml));
+p = merge_struct(p, read_nml(p.nml));
 
 %% setup simulation
 model_setup_equilibrium(p)

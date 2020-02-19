@@ -3,8 +3,6 @@ ymd = 2013,2,20               ! year, month, day
 UTsec0 = 18000.0              ! UTsec0:  start time in UT seconds
 tdur = 300.0                  ! tdur:  duration of simulation in seconds
 dtout = 60.0                  ! dtout: how often to do output
-!! import geomagindices as gi
-!! gi.get_indices('2013-02-20T05', smoothdays=81)
 activ = 108.9, 111.0, 5       ! activ:  f107a,f107,Ap
 tcfl = 0.9                    ! tcfl:  target cfl number
 Teinf = 1500.0                ! Teinf:  exospheric electron temperature
