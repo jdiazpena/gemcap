@@ -5,18 +5,15 @@ function config()
 %% boilerplate for each config.m file
 cwd = fileparts(mfilename('fullpath'));
 gemroot = getenv('GEMINI_ROOT');
-addpath([gemroot,'/script_utils'], [gemroot,'/setup'])
+addpath([gemroot, '/script_utils'], [gemroot,'/setup'])
+p.nml = [cwd,'/config.nml'];
+p = merge_struct(p, read_nml(p.nml));
+p.simdir = absolute_path(['../', fileparts(p.indat_size)]);
 
-% convenience
-simroot = [cwd, '/../../gemini_sim'];
+p.eqdir = absolute_path([p.simdir, '/../test2d_eq']);
+p.eqnml = [p.eqdir, '/inputs/config.nml'];
 
 p.format = 'h5';
-p.nml = [cwd,'/config.nml'];
-p.eqdir = [simroot, '/test2d_eq'];
-p.eqnml = [p.eqdir, '/inputs/config.nml'];
-p.simdir = [simroot, '/test2d_fang'];
-
-p = merge_struct(p, read_nml(p.nml));
 
 %% perturbations
 p.Etarg = 50e-3;  % [V/m]
