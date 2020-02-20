@@ -19,7 +19,7 @@ p.format = 'h5';
 p.Etarg = 50e-3;  % [V/m]
 
 % normalized widths
-p.fracwidth = 1/7;
+p.Efield_fracwidth = 1/7;
 
 %% setup simulation
 model_setup_interp(p)
