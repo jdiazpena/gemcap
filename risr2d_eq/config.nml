@@ -34,5 +34,5 @@ lxp = 1                     ! number of x-cells
 lyp = 15                    ! number of y-cells
 Bincl = 90                  ! geomagnetic inclination
 nmf = 5e11
-nme = 2e11
+nme = 1e11
 /

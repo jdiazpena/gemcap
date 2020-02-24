@@ -1,5 +1,5 @@
 function config()
-%% 2D east-west test equilibrium
+%% 2D north-south equilibrium
 %
 
 %% boilerplate for each config.m file
@@ -10,7 +10,6 @@ p.nml = [cwd,'/config.nml'];
 p = merge_struct(p, read_nml(p.nml));
 p.simdir = absolute_path(['../', fileparts(p.indat_size)]);
 
-p.realbits = 64;
 p.format = 'h5';
 
 %% setup simulation
