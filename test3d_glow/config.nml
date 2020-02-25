@@ -41,7 +41,7 @@ prec_dir = '../gemini_sim/test3d_glow/inputs/prec_inputs/'
 
 &efield
 dtE0 = 1.0
-E0_dir = './gemini_sim/test3d_glow/inputs/Efield_inputs/'
+E0_dir = '../gemini_sim/test3d_glow/inputs/Efield_inputs/'
 /
 
 &glow
