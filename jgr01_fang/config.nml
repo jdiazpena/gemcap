@@ -1,18 +1,18 @@
 &base
 ymd = 1998,2,1               ! year, month, day
 UTsec0 = 23400.0              ! UTsec0:  start time in UT seconds
-tdur = 86400.0                ! tdur:  duration of simulation in seconds
-dtout = 1800.0                ! dtout: how often to do output
+tdur = 5400.0                  ! tdur:  duration of simulation in seconds
+dtout = 60.0                  ! dtout: how often to do file output
 activ = 86.9, 88.1, 12      ! activ:  f107a,f107,Ap
 tcfl = 0.9                    ! tcfl:  target cfl number
 Teinf = 1500.0                ! Teinf:  exospheric electron temperature
-potsolve = 0                  ! potsolve:  how are we solving electrodynamics?   0 - no; 1 - electrostatic; 2 - inductive
+potsolve = 1                  ! potsolve:  how are we solving electrodynamics?   0 - no; 1 - electrostatic; 2 - inductive
 flagperiodic = 0
-flagoutput = 1
+flagoutput = 2
 flagcap = 0
-indat_size = '../gemini_sim/jgr01_eq/simsize.h5'
-indat_grid = '../gemini_sim/jgr01_eq/simgrid.h5'
-indat_file = '../gemini_sim/jgr01_eq/initial_conditions.h5'
+indat_size = '../gemini_sim/jgr01_fang/simsize.h5'
+indat_grid = '../gemini_sim/jgr01_fang/simgrid.h5'
+indat_file = '../gemini_sim/jgr01_fang/initial_conditions.h5'
 flagdneu = 0
 flagprecfile = 0
 flagE0file = 0
@@ -32,4 +32,14 @@ lyp = 1                     ! number of y-cells
 Bincl = 90                  ! geomagnetic inclination
 nmf = 5e11
 nme = 2e11
+/
+
+&precip
+dtprec = 5.0
+prec_dir = '../gemini_sim/jgr01_fang/inputs/prec_inputs/'
+/
+
+&efield
+dtE0 = 1.0
+E0_dir = '../gemini_sim/jgr01_fang/inputs/Efield_inputs/'
 /
