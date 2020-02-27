@@ -1,7 +1,7 @@
 &base
 ymd = 1998,2,1               ! year, month, day
 UTsec0 = 23400.0              ! UTsec0:  start time in UT seconds
-tdur = 5400.0                  ! tdur:  duration of simulation in seconds
+tdur = 3000.0                  ! tdur:  duration of simulation in seconds
 dtout = 60.0                  ! dtout: how often to do file output
 activ = 86.9, 88.1, 12      ! activ:  f107a,f107,Ap
 tcfl = 0.9                    ! tcfl:  target cfl number
@@ -37,9 +37,15 @@ nme = 2e11
 &precip
 dtprec = 5.0
 prec_dir = '../gemini_sim/jgr01_fang/inputs/prec_inputs/'
+precip_latwidth = 1/4
+precip_lonwidth = 1/4
+precip_startsec = 600
+precip_endsec = 2400
 /
 
 &efield
 dtE0 = 1.0
 E0_dir = '../gemini_sim/jgr01_fang/inputs/Efield_inputs/'
+Etarg = 50e-3   ! V/m
+Efield_fracwidth = 1/7
 /
