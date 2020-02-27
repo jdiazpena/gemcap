@@ -20,6 +20,8 @@ flagglow = 0
 /
 
 &setup
+format = 'h5'
+realbits = 64
 glat = 78.15
 glon = 16.05                ! degrees east [0,360]
 xdist = 100e3               ! eastward distance (meters)
