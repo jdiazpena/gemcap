@@ -20,8 +20,10 @@ p.Etarg = 50e-3;  % [V/m]
 
 % normalized widths
 % p.Efield_fracwidth = 1/7;
-% p.precip_latwidth = 1/4;
-% p.precip_lonwidth = 1/4;
+p.precip_latwidth = 1/4;
+p.precip_lonwidth = 1/4;
+p.precip_startsec = 20*60;
+p.precip_endsec = p.precip_startsec + 30*60;
 
 %% setup simulation
 model_setup_interp(p)
