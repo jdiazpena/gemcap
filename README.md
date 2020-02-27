@@ -1,15 +1,15 @@
 # Gemini simulation configuration scripts
 
-windows uses WSL (Windows Subsystem for Linux).
+Windows uses WSL (Windows Subsystem for Linux).
 Mac and Linux users just work in your Terminal as usual.
 
 ## 0. build Gemini and prereqs
 
 1. install python3 (e.g. via miniconda).
 2. `git clone https://github.com/gemini3d/gemini`
-3. `python gemini/install_prereqs.py`
+3. `python gemini/script_utils/install_prereqs.py`
 4. `cd gemini`
-5. `python setup.py develop --user`
+5. `python3 setup.py develop --user`
 
 The "build" specified below is the directory gemini/build/ on the computer.
 If any user-compiled libraries are used, as will be particularly likely on HPC, before this step set environment variables
@@ -22,7 +22,7 @@ export MUMPS_ROOT=$HOME/projs/lib_budge/mumps
 ```
 
 1. `cmake -B build`
-2. `cmake --build build --parallel`
+2. `cmake --build build -j`
 
 The "meson test" command compiles the programs and runs self-tests that will take about 10 minutes on a laptop.
 
@@ -30,14 +30,6 @@ The "meson test" command compiles the programs and runs self-tests that will tak
 
 It's necessary to have an equilibrium simulation to provide quiescent background conditions.
 It runs for the 24 hour simulated time period just before the desired full simulation time start.
-
-### setup grid
-
-Setup the simulation grid by running the `config.m` script under the `risr3d_eq` directory, which creates files:
-
-* initial_conditions.dat
-* simgrid.dat
-* simsize.dat
 
 ### run equilibrium simulation
 
@@ -49,7 +41,7 @@ The equilibrium simulation is run with a command as follows.
 The `-np 4` parameter corresponds to the number of *physical* cores in the computer.
 
 ```sh
-mpiexec -np 4 ../gemini/build/gemini.bin risr3d_eq/config.nml ../gemini_sim/risr3d_eq
+python3 ../gemini/job.py risr3d_eq/config.nml ../gemini_sim/risr3d_eq
 ```
 
 ## 2. full simulation
@@ -85,5 +77,5 @@ The simulation is run with a command as follows.
 The `-np 4` parameter corresponds to the number of *physical* cores in the computer.
 
 ```sh
-mpiexec -np 4 ../gemini/build/gemini_fang.bin risr3d_in/config.nml ../gemini_sim/risr3d_out
+python3 ../gemini/job.py risr3d_in/config.nml ../gemini_sim/risr3d_out
 ```
