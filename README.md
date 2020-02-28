@@ -50,7 +50,7 @@ A full simulation grid within the equilibrium simulation grid is necessary.
 Typically, boundary condtions are also used.
 
 Copy the config.nml used for the equilibrium simulation to the simulation directory,
-and increase the resolution as desired in risr3d_in/config.m to create the new grid.
+and increase the resolution as desired in config.nml to create the new grid.
 
 ### setup boundary conditions
 
