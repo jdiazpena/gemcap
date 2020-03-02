@@ -34,10 +34,10 @@ lyp = 1                     ! number of y-cells
 Bincl = 90                  ! geomagnetic inclination
 nmf = 5e11
 nme = 2e11
-precip_latwidth = 1/4
-precip_lonwidth = 1/4
+precip_latwidth = 0.25
+precip_lonwidth = 0.25
 Etarg = 50e-3   ! V/m
-Efield_fracwidth = 1/7
+Efield_fracwidth = 0.142857
 eqdir = '~/gemini_sim/test2d_eq'
 /
 
