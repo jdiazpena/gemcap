@@ -1,35 +1,41 @@
 # Gemini simulation configuration scripts
 
-Windows uses WSL (Windows Subsystem for Linux).
+Gemini (and PyGemini and MatGemini) run on Windows, MacOS or Linux.
 Mac and Linux users just work in your Terminal as usual.
+Windows users can use MSYS2, WSL or Cygwin.
 
 ## 0. build Gemini and prereqs
 
-1. install python3 (e.g. via miniconda).
+1. install Python e.g. via [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and close / reopen Terminal
 2. `git clone https://github.com/gemini3d/gemini`
-3. `python gemini/script_utils/install_prereqs.py`
-4. `cd gemini`
-5. `python3 setup.py develop --user`
+3. `ctest -S gemini/setup.cmake -VV`
 
-The "build" specified below is the directory gemini/build/ on the computer.
-If any user-compiled libraries are used, as will be particularly likely on HPC, before this step set environment variables
-pointing to the location of each library like:
+Gemini simulation can be run from Python (PyGemini) or Matlab (MatGemini).
+The command syntax is very similar.
+PyGemini has more features, but MatGemini is also a well-tested package.
+HDF5 files are recommended in general, and NetCDF4 is also available.
+
+### Python
+
+From Terminal, assuming PyGemini was previously installed:
 
 ```sh
-export LAPACK_ROOT=$HOME/projs/lib_budge/lapack
-export SCALAPACK_ROOT=$HOME/projs/lib_budge/scalapack
-export MUMPS_ROOT=$HOME/projs/lib_budge/mumps
+gemini_run path/to/config.nml output_dir
 ```
 
-1. `cmake -B build`
-2. `cmake --build build -j`
+### Matlab
 
-The "meson test" command compiles the programs and runs self-tests that will take about 10 minutes on a laptop.
+From Matlab prompt, assuming setup.m was run since Matlab was started
+
+```sh
+gemini_run('path/to/config.nml', 'output_dir')
+```
 
 ## 1. equilibrium simulation
 
 It's necessary to have an equilibrium simulation to provide quiescent background conditions.
 It runs for the 24 hour simulated time period just before the desired full simulation time start.
+The equilibrium simulation can be run at a far lower resolution to make it run faster, perhaps 8 or 16 cells per axis is enough unless the simulation has geographically large extants &Gt; 1000 km.
 
 ### run equilibrium simulation
 
@@ -38,10 +44,9 @@ It should start 24 hours before the actual desired simulation start time.
 See a config.nml in this repo for an example.
 
 The equilibrium simulation is run with a command as follows.
-The `-np 4` parameter corresponds to the number of *physical* cores in the computer.
 
 ```sh
-python3 ../gemini/job.py risr3d_eq/config.nml ../gemini_sim/risr3d_eq
+gemini_run risr3d_eq/config.nml ~/simulations/risr3d_eq
 ```
 
 ## 2. full simulation
@@ -63,19 +68,16 @@ The boundary conditions are enabled in the simulation config.nml file.
 For electric potential, in the config.nml, include:
 
 ```ini
-flagE0file = 1
-
 &efield
 dtE0 = 1.0
-E0_dir = '../my_sim_dir/inputs/Efield_inputs/'
+E0_dir = 'inputs/Efield/'
 /
 ```
 
 ### run simulation
 
-The simulation is run with a command as follows.
-The `-np 4` parameter corresponds to the number of *physical* cores in the computer.
+The simulation is run like:
 
 ```sh
-python3 ../gemini/job.py risr3d_in/config.nml ../gemini_sim/risr3d_out
+gemini_run risr3d_fang/config.nml ~/simulations/risr3d_fang
 ```
