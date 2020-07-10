@@ -1,18 +1,18 @@
 &base
 ymd = 2012,1,24               ! year, month, day
-UTsec0 = 39600.0              ! UTsec0:  start time in UT seconds
-tdur = 300.0                  ! tdur:  duration of simulation (seconds)
-dtout = 60.0                  ! dtout: how often to do output (seconds)
-activ = 88.896, 139.8, 3      ! activ:  f107a,f107,Ap
-tcfl = 0.9                    ! tcfl:  target cfl number
-Teinf = 1500.0                ! Teinf:  exospheric electron temperature
-potsolve = 1                  ! potsolve:  how are we solving electrodynamics?   0 - no; 1 - electrostatic; 2 - inductive
+UTsec0 = 39600.0              ! start time in UT seconds
+tdur = 300.0                  ! duration of simulation (seconds)
+dtout = 60.0                  ! how often to do output (seconds)
+activ = 88.896, 139.8, 3      ! f107a,f107,Ap
+tcfl = 0.9                    ! target cfl number
+Teinf = 1500.0                ! exospheric electron temperature
+potsolve = 1                  ! solve electrodynamics:  0 - no; 1 - electrostatic; 2 - inductive
 flagperiodic = 0
 flagoutput = 2
 flagcap = 0
-indat_size = '~/gemini_sim/risr2d_fang/simsize.h5'
-indat_grid = '~/gemini_sim/risr2d_fang/simgrid.h5'
-indat_file = '~/gemini_sim/risr2d_fang/initial_conditions.h5'
+indat_size = 'inputs/simsize.h5'
+indat_grid = 'inputs/simgrid.h5'
+indat_file = 'inputs/initial_conditions.h5'
 flagdneu = 0
 flagprecfile = 0
 flagE0file = 1
@@ -20,8 +20,6 @@ flagglow = 0
 /
 
 &setup
-format = 'h5'
-realbits = 64
 glat = 74.73
 glon = 265.095  ! 94.905 W
 xdist = 1200e3              ! eastward distance (meters)
@@ -30,25 +28,25 @@ alt_min = 80e3              ! minimum altitude (meters)
 alt_max = 1000e3            ! maximum altitude (meters)
 alt_scale = 13.75e3, 20e3, 200e3, 200e3  ! altitude grid scales (meters)
 lxp = 1                     ! number of x-cells
-lyp = 150                   ! number of y-cells
+lyp = 120                   ! number of y-cells
 Bincl = 90                  ! geomagnetic inclination
 nmf = 5e11
-nme = 1e11
+nme = 2e11
 precip_latwidth = 1/4
 precip_lonwidth = 1/4
 precip_startsec = 0
 precip_endsec = 2400
 Etarg = 50e-3   ! V/m
-Efield_fracwidth = 1/7
-eqdir = '~/gemini_sim/risr2d_eq'
+Efield_latwidth = 1/7
+eqdir = '~/simulations/risr2d_eq'
 /
 
 &precip
 dtprec = 5.0
-prec_dir = '~/gemini_sim/risr2d_fang/inputs/prec_inputs/'
+prec_dir = 'inputs/prec/'
 /
 
 &efield
 dtE0 = 1.0
-E0_dir = '~/gemini_sim/risr2d_fang/inputs/Efield_inputs/'
+E0_dir = 'inputs/Efield/'
 /
