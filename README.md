@@ -46,7 +46,7 @@ See a config.nml in this repo for an example.
 The equilibrium simulation is run with a command as follows.
 
 ```sh
-gemini_run risr3d_eq/config.nml ~/simulations/risr3d_eq
+gemini_run risr3d_eq/ ~/simulations/risr3d_eq
 ```
 
 ## 2. full simulation
@@ -79,5 +79,5 @@ E0_dir = 'inputs/Efield/'
 The simulation is run like:
 
 ```sh
-gemini_run risr3d_fang/config.nml ~/simulations/risr3d_fang
+gemini_run risr3d_fang/ ~/simulations/risr3d_fang
 ```
