@@ -52,3 +52,8 @@ prec_dir = 'inputs/precip/'
 dtE0 = 60.0
 E0_dir = 'inputs/Efield/'
 /
+
+&glow
+dtglow = 15.0
+dtglowout = 60.0            ! how often to do Glow file output
+/
