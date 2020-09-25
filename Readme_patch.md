@@ -38,7 +38,7 @@ python -m pip install cmake
 
 If you are missing something, here's a quick start (all these commands from Terminal):
 
-* Linux / Windows Subsystem for Linux: `apt install gfortran libhdf5-dev liblapack-dev libopenmpi-dev
+* Linux / Windows Subsystem for Linux: `apt install gfortran libhdf5-dev liblapack-dev libopenmpi-dev`
 * MacOS Homebrew: `brew install cmake gcc hdf5 openmpi lapack scalapack`
 
 Windows can use
