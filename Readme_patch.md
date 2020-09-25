@@ -13,6 +13,58 @@ Unless otherwise noted, these commands are all:
 
 For convenience we'll put all simulation data under directory "~/sims/" but that's arbitrary.
 
+## one-time Gemini build
+
+If the commands below complain about Gemini.bin not being found, you may need to build Gemini3D executable from Terminal:
+
+```sh
+cd ..
+
+git clone https://github.com/gemini3d/gemini3d.git
+
+ctest -S gemini3d/setup.cmake -VV
+```
+
+Assuming you have a Fortran compiler, that usually "just works".
+If you don't have a "ctest" command, you will need to
+[install CMake](https://cmake.org/download/)
+which can be done from Terminal like:
+
+```sh
+python -m pip install cmake
+```
+
+### Prerequisites
+
+If you are missing something, here's a quick start (all these commands from Terminal):
+
+* Linux / Windows Subsystem for Linux: `apt install gfortran libhdf5-dev liblapack-dev libopenmpi-dev
+* MacOS Homebrew: `brew install cmake gcc hdf5 openmpi lapack scalapack`
+
+Windows can use
+[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+or MSYS2.
+
+#### Windows MSYS2
+
+[MSYS2 is setup as here](https://www.scivision.dev/install-msys2-windows/)
+
+```sh
+pacman -S mingw-w64-x86_64-gcc-fortran
+pacman -S mingw-w64-x86_64-hdf5
+pacman -S mingw-w64-x86_64-lapack
+pacman -S mingw-w64-x86_64-scalapack
+```
+
+Windows MS-MPI is [setup as here](https://www.scivision.dev/windows-mpi-msys2/).
+MPI is not required by Gemini, but simulations will run slower without MPI since only one CPU core is used.
+
+#### Intel oneAPI
+
+Alternatively to the above,
+[Intel oneAPI compiler](https://www.scivision.dev/intel-oneapi-fortran-install/)
+can be used which has Lapack, MPI, Scalapack built in on Windows, Mac or Linux.
+
 ## equilibrium
 
 This will take about 5-10 minutes on a typical quad-core laptop, and only has to be done once unless you:
