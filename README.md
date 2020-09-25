@@ -6,29 +6,38 @@ Windows users can use MSYS2, WSL or Cygwin.
 
 ## 0. build Gemini and prereqs
 
-1. install Python e.g. via [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and close / reopen Terminal
-2. `git clone https://github.com/gemini3d/gemini`
-3. `ctest -S gemini/setup.cmake -VV`
+Install Gemini3D:
+
+```sh
+git clone https://github.com/gemini3d/gemini3d
+
+ctest -S gemini3d/setup.cmake -VV
+```
 
 Gemini simulation can be run from Python (PyGemini) or Matlab (MatGemini).
-The command syntax is very similar.
-PyGemini has more features, but MatGemini is also a well-tested package.
-HDF5 files are recommended in general, and NetCDF4 is also available.
+Depending on the author, some features are developed first in MatGemini or PyGemini.
+HDF5 is the default data file type.
 
 ### Python
 
 From Terminal, assuming PyGemini was previously installed:
 
 ```sh
-gemini_run path/to/config.nml output_dir
+python -m gemini3d.gemini_run path/to/config.nml output_dir
 ```
 
 ### Matlab
 
-From Matlab prompt, assuming setup.m was run since Matlab was started
+From Matlab prompt:
 
 ```sh
-gemini_run('path/to/config.nml', 'output_dir')
+gemini3d.gemini_run('path/to/config.nml', 'output_dir')
+```
+
+If the function isn't found, in Matlab:
+
+```matlab
+run("gemini3d/setup.m")
 ```
 
 ## 1. equilibrium simulation
