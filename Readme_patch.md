@@ -92,5 +92,16 @@ This will help us see if anything is unexpected (non-physical) with our simulati
 The Gemini developers try to trap common mistakes, but we can't catch everything.
 
 ```matlab
-gemini3d.gemini_run("risr2d_fang/", "~/sims/risr2d_eq")
+gemini3d.gemini_run("risr2d_fang/", "~/sims/risr2d_fang")
 ```
+
+## Glow
+
+Glow will default to Maxwellian differential number flux (DNF) precipitation spectrum.
+If this shows to be generally suitable, we can upgrade the Glow interface to pass monoenergetic DNF parameters.
+
+```matlab
+gemini3d.gemini_run("risr2d_glow/", "~/sims/risr2d_glow")
+```
+
+The parameters in gemcap/risr2d_glow/config.nml control the simulation. We'll discuss.
