@@ -27,26 +27,26 @@ ydist = 100e3               ! northward distance (meters)
 alt_min = 80e3              ! minimum altitude (meters)
 alt_max = 1000e3            ! maximum altitude (meters)
 alt_scale = 13.75e3, 20e3, 200e3, 200e3  ! altitude grid scales (meters)
-lxp = 10                    ! number of x-cells
+lxp = 12                    ! number of x-cells
 lyp = 1                     ! number of y-cells
 Bincl = 90                  ! geomagnetic inclination
 nmf = 5e11
 nme = 2e11
-precip_latwidth = 1/4
-precip_lonwidth = 1/4
+precip_latwidth = 0.25
+precip_lonwidth = 0.25
 precip_startsec = 600
 precip_endsec = 2400
 Etarg = 50e-3   ! V/m
-Efield_lonwidth = 1/7
-eqdir = '~/simulations/jgr01_eq'
+Efield_lonwidth = 0.142857
+eq_dir = '~/sims/jgr01_eq'
 /
 
 &precip
-dtprec = 5.0
+dtprec = 60.0
 prec_dir = 'inputs/prec/'
 /
 
 &efield
-dtE0 = 1.0
+dtE0 = 60.0
 E0_dir = 'inputs/Efield/'
 /
