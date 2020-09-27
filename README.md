@@ -31,7 +31,7 @@ python -m gemini3d.gemini_run path/to/config.nml output_dir
 From Matlab prompt:
 
 ```matlab
-gemini3d.gemini_run('path/to/config.nml', 'output_dir')
+gemini3d.gemini_run(output_dir, "config", "path/to/config.nml")
 ```
 
 If the function isn't found, in Matlab:
@@ -61,7 +61,7 @@ python -m gemini3d.gemini_run risr3d_eq/ ~/sims/risr3d_eq
 or
 
 ```matlab
-gemini3d.gemini_run("risr3d_eq/", "~/sims/risr3d_eq")
+gemini3d.gemini_run("~/sims/risr3d_eq", "config", "risr3d_eq/")
 ```
 
 ## 2. full simulation
@@ -100,5 +100,5 @@ python -m gemini3d.gemini_run risr3d_fang/ ~/sims/risr3d_fang
 or
 
 ```matlab
-gemini3d.gemini_run("risr3d_fang/", "~/sims/risr3d_eq")
+gemini3d.gemini_run("~/sims/risr3d_eq", "config", "risr3d_fang/")
 ```
