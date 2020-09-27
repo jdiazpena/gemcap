@@ -1,7 +1,7 @@
 &base
 ymd = 2012,1,24               ! year, month, day
 UTsec0 = 39600.0              ! start time in UT seconds
-tdur = 300.0                  ! duration of simulation (seconds)
+tdur = 900.0                  ! duration of simulation (seconds)
 dtout = 60.0                  ! how often to do output (seconds)
 activ = 88.896, 139.8, 3      ! f107a,f107,Ap
 tcfl = 0.9                    ! target cfl number
@@ -37,9 +37,9 @@ precip_startsec = 0
 precip_endsec = 2400
 Qprecip = 10
 Qprecip_background = 0.0
-E0precip = 500
+E0precip = 100
 Etarg = 50e-3   ! V/m
-Efield_latwidth = 0.142857
+Efield_latwidth = 0.1
 eq_dir = '../risr2ns_eq'
 /
 
