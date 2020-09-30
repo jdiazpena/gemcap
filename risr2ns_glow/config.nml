@@ -35,10 +35,10 @@ nme = 2e11
 precip_latwidth = 0.25
 precip_startsec = 0
 precip_endsec = 2400
-Qprecip = 10
-Qprecip_background = 0.0
-E0precip = 100
-Etarg = 50e-3   ! V/m
+Qprecip = 10                ! particle flux: mW/m^2
+Qprecip_background = 0.0    ! background particle flux: mW/m^2
+E0precip = 100              ! characteristic energy: eV
+Etarg = 50e-3               ! V/m
 Efield_latwidth = 0.1
 eq_dir = '../risr2ns_eq'
 /
