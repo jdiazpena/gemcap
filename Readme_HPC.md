@@ -2,7 +2,7 @@
 
 This assumes the HPC is using TORQUE scheduler.
 To run anything more than a tiny simulation requires requesting an HPC job via Torque.
-The PyGemini `gemini3d.gemini_run` program will generate HPC batch scripts when run on HPC.
+The PyGemini `gemini3d.run` program will generate HPC batch scripts when run on HPC.
 
 ### submit job
 

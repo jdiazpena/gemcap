@@ -23,7 +23,7 @@ HDF5 is the default data file type.
 From Terminal, assuming PyGemini was previously installed:
 
 ```sh
-python -m gemini3d.gemini_run path/to/config.nml output_dir
+python -m gemini3d.run path/to/config.nml output_dir
 ```
 
 ### Matlab
@@ -31,7 +31,7 @@ python -m gemini3d.gemini_run path/to/config.nml output_dir
 From Matlab prompt:
 
 ```matlab
-gemini3d.gemini_run(output_dir, "config", "path/to/config.nml")
+gemini3d.run(output_dir, "config", "path/to/config.nml")
 ```
 
 If the function isn't found, in Matlab:
@@ -55,13 +55,13 @@ See a config.nml in this repo for an example.
 The equilibrium simulation is run with a command as follows.
 
 ```sh
-python -m gemini3d.gemini_run risr3d_eq/ ~/sims/risr3d_eq
+python -m gemini3d.run risr3d_eq/ ~/sims/risr3d_eq
 ```
 
 or
 
 ```matlab
-gemini3d.gemini_run("~/sims/risr3d_eq", "config", "risr3d_eq/")
+gemini3d.run("~/sims/risr3d_eq", "config", "risr3d_eq/")
 ```
 
 ## 2. full simulation
@@ -94,11 +94,11 @@ E0_dir = 'inputs/Efield/'
 The simulation is run like:
 
 ```sh
-python -m gemini3d.gemini_run risr3d_fang/ ~/sims/risr3d_fang
+python -m gemini3d.run risr3d_fang/ ~/sims/risr3d_fang
 ```
 
 or
 
 ```matlab
-gemini3d.gemini_run("~/sims/risr3d_eq", "config", "risr3d_fang/")
+gemini3d.run("~/sims/risr3d_eq", "config", "risr3d_fang/")
 ```

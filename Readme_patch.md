@@ -74,13 +74,13 @@ This will take about 5-10 minutes on a typical quad-core laptop, and only has to
 * significantly change the starting time (noon instead of dawn, etc.)
 
 ```matlab
-gemini3d.gemini_run("~/sims/risr2d_eq", "config", "risr2d_eq/")
+gemini3d.run("~/sims/risr2d_eq", "config", "risr2d_eq/")
 ```
 
 Although several of the plots will be blank due to quasi static ionosphere, the data can be plotted by:
 
 ```matlab
-gemini3d.gemini_plot("~/sims/risr2d_eq", "png")
+gemini3d.plot("~/sims/risr2d_eq", "png")
 ```
 
 that creates plots in the "~/sims/risr2d_eq/plots" directory.
@@ -92,7 +92,7 @@ This will help us see if anything is unexpected (non-physical) with our simulati
 The Gemini developers try to trap common mistakes, but we can't catch everything.
 
 ```matlab
-gemini3d.gemini_run("~/sims/risr2d_fang", "config", "risr2d_fang/")
+gemini3d.run("~/sims/risr2d_fang", "config", "risr2d_fang/")
 ```
 
 ## Glow
@@ -101,7 +101,7 @@ Glow will default to Maxwellian differential number flux (DNF) precipitation spe
 If this shows to be generally suitable, we can upgrade the Glow interface to pass monoenergetic DNF parameters.
 
 ```matlab
-gemini3d.gemini_run("~/sims/risr2d_glow", "config", "risr2d_glow/")
+gemini3d.run("~/sims/risr2d_glow", "config", "risr2d_glow/")
 ```
 
 The parameters in gemcap/risr2d_glow/config.nml control the simulation. We'll discuss.
